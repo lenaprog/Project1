@@ -1,0 +1,48 @@
+body {
+  font-family: Roboto, HelveticaNeue, Arial, sans-serif;
+  font-size: 15px;
+}
+
+#links {
+  display: flexbox;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.alink {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+a:link {
+  color: pink;
+}
+
+a:hover {
+  color: darkgreen;
+  font-size: 20px;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.searchbox {
+  margin: 10px;
+  padding: 5px;
+}
+
+.submitb {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  color: white;
+  background-color: rgb(40, 40, 226);
+  border-radius: 12px;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+button:hover {
+  font-size: 50px;
+}
