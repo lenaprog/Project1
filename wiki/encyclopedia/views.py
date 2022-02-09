@@ -2,6 +2,7 @@ from email import message
 from django.shortcuts import render, redirect
 import markdown2 
 from django import forms
+from django.http import HttpResponse
 
 
 from . import util
@@ -18,11 +19,23 @@ def index(request):
 def search(request):
     term = request.GET.get("q")
     entries = util.search_entry(term)
-    
-    return render(request, "encyclopedia/search.html", { 
-    "entries": entries
-    } )
+    if term:
+        return redirect("page", term)
+    else:
+        return render(request, "encyclopedia/search.html", {
+        "entries" : entries,
+        })
 
+def new_entry(request):
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = request.POST["content"]
+        if util.get_entry(title):
+            return HttpResponse ("Entry already exists")
+        else:
+            util.save_entry(title, content)
+            return redirect ("encyclopedia/page.html", title)
+    return render(request, "encyclopedia/newentry.html")
 
 
 def page(request, title):

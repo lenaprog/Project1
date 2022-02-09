@@ -47,7 +47,9 @@ def search_entry(term):
     for entry in list_entries():
         if (str.upper(term) in str.upper(entry)):
             matches.append(entry)
+
     if (len(matches) > 0):
                 return matches 
+        
     else:
         return None 

@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New entry
+{% endblock %}
+
+{% block body %}
+    <h1>Create a new encyclopedia entry</h1>
+
+    <form action="newentry" method="POST">
+        {% csrf_token %}
+        <div>
+        <input type="text" label="Title" name="title" id="posttitle" placeholder="add the encyclopedia title here">
+    </div>
+    <div id="post">
+        <textarea type="text" label="add the content here" name="content" id="" placeholder="add the encyclopedia content here"></textarea>
+    </div>
+    <div>
+        <input type="submit" style="align-items: center;">
+    </div>
+    </form>
+
+{% endblock %}
