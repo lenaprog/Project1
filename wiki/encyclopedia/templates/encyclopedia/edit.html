@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New entry
+{% endblock %}
+
+{% block body %}
+    <h1>Edit encyclopedia entry</h1>
+
+    <form action= "{% url 'edit', title %}" method="POST">
+        {% csrf_token %}
+
+    <div id="post">
+        <input type="text" name="edittitle" id="" placeholder="enter a title here">
+        <textarea type="text" label="add the content here" name="content" id="" placeholder="add the encyclopedia content here">{{ entry }}</textarea>
+    </div>
+    <div>
+        <input type="submit" style="align-items: center;">
+    </div>
+    </form>
+
+{% endblock %}
